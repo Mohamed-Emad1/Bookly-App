@@ -1,6 +1,6 @@
+import 'package:booly_app/Features/home/presentation/views/widgets/custom_listview_item.dart';
 import 'package:booly_app/Features/home/presentation/views/widgets/cutom_app_bar.dart';
 import 'package:flutter/material.dart';
-
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -12,12 +12,10 @@ class HomeViewBody extends StatelessWidget {
         SizedBox(
           height: 70,
         ),
-        CustomAppBar()
+        CustomAppBar(),
+        CustomListViewItem()
       ],
     );
   }
 }
-
-
-
 
