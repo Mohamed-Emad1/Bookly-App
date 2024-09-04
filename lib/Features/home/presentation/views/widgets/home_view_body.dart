@@ -13,9 +13,31 @@ class HomeViewBody extends StatelessWidget {
           height: 70,
         ),
         CustomAppBar(),
-        CustomListViewItem()
+        SizedBox(
+          height: 30,
+        ),
+        FeaturedBoxListView()
       ],
     );
   }
 }
 
+class FeaturedBoxListView extends StatelessWidget {
+  const FeaturedBoxListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.3,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: FeaturedListViewItem(),
+            );
+          },
+          itemCount: 5),
+    );
+  }
+}
