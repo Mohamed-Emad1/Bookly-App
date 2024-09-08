@@ -1,7 +1,6 @@
-import 'package:booly_app/Features/spalsh/presentation/views/spalsh_view.dart';
 import 'package:booly_app/constants.dart';
+import 'package:booly_app/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -14,10 +13,10 @@ class BooklyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
       title: 'Bookly',
       debugShowCheckedModeBanner: false,
-      home: const SpalshView(),
+      routerConfig: AppRoutes.router,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
@@ -25,3 +24,4 @@ class BooklyApp extends StatelessWidget {
     );
   }
 }
+

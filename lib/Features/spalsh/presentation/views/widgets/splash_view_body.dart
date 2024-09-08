@@ -1,10 +1,8 @@
-import 'package:booly_app/Features/home/presentation/views/home_view.dart';
 import 'package:booly_app/Features/spalsh/presentation/views/widgets/sliding_text.dart';
-import 'package:booly_app/constants.dart';
+import 'package:booly_app/core/utils/app_routes.dart';
 import 'package:booly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:go_router/go_router.dart';
 
 class SpalshViewBody extends StatefulWidget {
   const SpalshViewBody({super.key});
@@ -29,8 +27,8 @@ class _SpalshViewBodyState extends State<SpalshViewBody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.to(const HomeView(), transition: Transition.fadeIn, duration: kTransition);
-    });
+      GoRouter.of(context).push(AppRoutes.kHomeView);
+    },);
   }
 
   @override
