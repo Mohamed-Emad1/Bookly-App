@@ -1,4 +1,5 @@
 import 'package:booly_app/Features/home/presentation/views/widgets/book_rating.dart';
+import 'package:booly_app/Features/home/presentation/views/widgets/books_action.dart';
 import 'package:booly_app/Features/home/presentation/views/widgets/custom_app_bar_book_details.dart';
 import 'package:booly_app/Features/home/presentation/views/widgets/custom_book_image_item.dart';
 import 'package:booly_app/core/utils/styles.dart';
@@ -42,9 +43,15 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           const BookRating(
             mainAxisAlignment: MainAxisAlignment.center,
-          )
+          ),
+          const SizedBox(
+            height: 37,
+          ),
+          const BooksAction()
         ],
       ),
     );
   }
 }
+
+
