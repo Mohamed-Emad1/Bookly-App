@@ -6,14 +6,16 @@ class SerachViewResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 10,
-        padding: EdgeInsets.zero,
-        itemBuilder: (context, index) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
           return const Padding(
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
             child: BookListViewItem(),
           );
-        });
+        },
+        childCount: 10, // Adjust this count based on your list
+      ),
+    );
   }
 }
