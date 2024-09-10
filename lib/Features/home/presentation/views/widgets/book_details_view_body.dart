@@ -2,6 +2,7 @@ import 'package:booly_app/Features/home/presentation/views/widgets/book_rating.d
 import 'package:booly_app/Features/home/presentation/views/widgets/books_action.dart';
 import 'package:booly_app/Features/home/presentation/views/widgets/custom_app_bar_book_details.dart';
 import 'package:booly_app/Features/home/presentation/views/widgets/custom_book_image_item.dart';
+import 'package:booly_app/Features/home/presentation/views/widgets/similar_list_view_books.dart';
 import 'package:booly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -47,11 +48,23 @@ class BookDetailsViewBody extends StatelessWidget {
           const SizedBox(
             height: 37,
           ),
-          const BooksAction()
+          const BooksAction(),
+          const SizedBox(
+            height: 50,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "You can also like",
+              style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          const SimilarBooksListView(),
         ],
       ),
     );
   }
 }
-
-
