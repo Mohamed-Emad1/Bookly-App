@@ -14,7 +14,7 @@ abstract class AppRoutes {
         path: '/',
         builder: (context, state) => const SpalshView(),
       ),
-       GoRoute(
+      GoRoute(
         path: kSearchView,
         builder: (context, state) => const SearchView(),
       ),

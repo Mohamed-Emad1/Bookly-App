@@ -26,11 +26,14 @@ class _SpalshViewBodyState extends State<SpalshViewBody>
   }
 
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 2), () {
-       if (mounted) {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        if (mounted) {
           GoRouter.of(context).push(AppRoutes.kHomeView);
         }
-    },);
+      },
+    );
   }
 
   @override
