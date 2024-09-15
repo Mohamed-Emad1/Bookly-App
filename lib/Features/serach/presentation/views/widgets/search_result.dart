@@ -1,4 +1,3 @@
-import 'package:booly_app/Features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class SerachViewResult extends StatelessWidget {
@@ -11,7 +10,10 @@ class SerachViewResult extends StatelessWidget {
         (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-            child: BookListViewItem(),
+            // child: BookListViewItem(
+            //   book:
+            // ),
+            child: Text("handle list here"),
           );
         },
         childCount: 10, // Adjust this count based on your list
