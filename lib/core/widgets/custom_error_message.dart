@@ -6,6 +6,12 @@ class CustomErrorMessage extends StatelessWidget {
   final String errorMessage;
   @override
   Widget build(BuildContext context) {
-    return Text(errorMessage ,style: Styles.textStyle18,);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      child: Text(
+        errorMessage,
+        style: Styles.textStyle18,
+      ),
+    );
   }
 }
