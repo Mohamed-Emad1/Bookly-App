@@ -14,7 +14,7 @@ class HomeRepoImplementaion extends HomeRepo {
     try {
       var data = await apiService.get(
           endPoint:
-              "https://www.googleapis.com/books/v1/volumes?Filtering=free-ebooks&Sorting=newest &q=Programming");
+              "volumes?Filtering=free-ebooks&Sorting=newest &q=Programming");
 
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -36,7 +36,7 @@ class HomeRepoImplementaion extends HomeRepo {
        try {
       var data = await apiService.get(
           endPoint:
-              "https://www.googleapis.com/books/v1/volumes?Filtering=free-ebooks&q=Programming");
+              "volumes?Filtering=free-ebooks&q=Programming");
 
       List<BookModel> books = [];
       for (var item in data['items']) {
