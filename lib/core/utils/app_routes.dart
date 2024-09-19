@@ -34,7 +34,7 @@ abstract class AppRoutes {
             getIt.get<HomeRepoImplementaion>()
           ),
           child: BookDetailView(
-            category: state.extra as BookModel,
+            bookModel: state.extra as BookModel,
           ),
         ),
       ),

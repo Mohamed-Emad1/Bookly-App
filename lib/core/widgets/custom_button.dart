@@ -10,7 +10,7 @@ class CustomButton extends StatelessWidget {
       this.bottomLeft = const Radius.circular(0),
       this.bottomRight = const Radius.circular(0),
       this.backgroundColor = const Color(0xffFFFFFF),
-      this.textColor = const Color(0xFFFFFFFF)});
+      this.textColor = const Color(0xFFFFFFFF), this.onPressed});
 
   final String text;
   final Radius topLeft;
@@ -19,12 +19,13 @@ class CustomButton extends StatelessWidget {
   final Radius bottomRight;
   final Color backgroundColor;
   final Color textColor;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 48,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: TextButton.styleFrom(
             backgroundColor: backgroundColor,
             shape: RoundedRectangleBorder(

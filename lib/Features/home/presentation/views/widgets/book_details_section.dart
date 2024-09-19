@@ -1,3 +1,4 @@
+import 'package:booly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:booly_app/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:booly_app/Features/home/presentation/views/widgets/books_action.dart';
 import 'package:booly_app/Features/home/presentation/views/widgets/custom_book_image_item.dart';
@@ -5,8 +6,9 @@ import 'package:booly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection({super.key, required this.bookModel});
 
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -14,22 +16,24 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .2),
-          child: const CustomBookImage(
-            imageUrl: "https://cdn.prod.website-files.com/654366841809b5be271c8358/659efd7c0732620f1ac6a1d6_why_flutter_is_the_future_of_app_development%20(1).webp",
+          child:  CustomBookImage(
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),
         const SizedBox(
           height: 43,
         ),
-        const Text(
-          "The Jungle Book",
+         Text(
+          bookModel.volumeInfo.title ?? 'Title not found',
+          textAlign: TextAlign.center,
           style: Styles.textStyle30,
         ),
         const SizedBox(
           height: 6,
         ),
         Text(
-          "Rudyard Kipling",
+          bookModel.volumeInfo.authors?[0] ?? 'Author not found',
+          textAlign: TextAlign.center,
           style: Styles.textStyle18.copyWith(
             color: const Color(0xff707070),
             fontWeight: FontWeight.w500,
@@ -45,7 +49,9 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 37,
         ),
-        const BooksAction(),
+         BooksAction(
+          bookModel: bookModel,
+        ),
       ],
     );
   }
