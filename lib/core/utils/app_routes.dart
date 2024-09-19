@@ -3,6 +3,8 @@ import 'package:booly_app/Features/home/data/repo/home_repo_implementaion.dart';
 import 'package:booly_app/Features/home/presentation/manager/similar_books/similar_books_cubit.dart';
 import 'package:booly_app/Features/home/presentation/views/book_details_view.dart';
 import 'package:booly_app/Features/home/presentation/views/home_view.dart';
+import 'package:booly_app/Features/serach/data/repos/search_repo_impl.dart';
+import 'package:booly_app/Features/serach/presentation/manager/search_cubit/search_result_cubit.dart';
 import 'package:booly_app/Features/serach/presentation/views/search_view.dart';
 import 'package:booly_app/Features/spalsh/presentation/views/spalsh_view.dart';
 import 'package:booly_app/core/utils/service_locator.dart';
@@ -21,7 +23,12 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SearchResultCubit(
+            getIt.get<SearchRepoImpl>()
+          ),
+          child: const SearchView(),
+        ),
       ),
       GoRoute(
         path: kHomeView,
@@ -30,9 +37,8 @@ abstract class AppRoutes {
       GoRoute(
         path: kBookDetailsView,
         builder: (context, state) => BlocProvider(
-          create: (context) => SimilarBooksCubit(
-            getIt.get<HomeRepoImplementaion>()
-          ),
+          create: (context) =>
+              SimilarBooksCubit(getIt.get<HomeRepoImplementaion>()),
           child: BookDetailView(
             bookModel: state.extra as BookModel,
           ),

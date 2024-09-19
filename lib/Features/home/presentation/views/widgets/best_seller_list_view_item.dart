@@ -17,8 +17,8 @@ class BookListViewItem extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(
           AppRoutes.kBookDetailsView,
-          extra: book,  
-          );
+          extra: book,
+        );
       },
       child: SizedBox(
         height: 130,
@@ -56,14 +56,12 @@ class BookListViewItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "19.99€",
+                        "Free",
                         style: Styles.textStyle20
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
-                       const BookRating(
-                       
-                      )
+                      const BookRating()
                     ],
                   )
                 ],
