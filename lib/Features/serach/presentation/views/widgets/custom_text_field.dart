@@ -6,17 +6,15 @@ import '../../manager/search_cubit/search_result_cubit.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {super.key,
-      required this.searchController,
-      required this.onSearchSubmitted});
+      {super.key, required this.searchController});
   final TextEditingController searchController;
-  final Function(String) onSearchSubmitted;
+  // final Function(String) onSearchSubmitted;
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: searchController,
       onSubmitted: (text) {
-        print(text);
+       
         // onSearchSubmitted(text);
         BlocProvider.of<SearchResultCubit>(context)
             .fetchFeaturedBooks(searchText: text);

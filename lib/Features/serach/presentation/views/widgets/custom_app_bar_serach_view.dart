@@ -2,9 +2,9 @@ import 'package:booly_app/Features/serach/presentation/views/widgets/custom_text
 import 'package:flutter/material.dart';
 
 class CustomAppBarSearchView extends StatelessWidget {
-  const CustomAppBarSearchView({super.key, required this.searchController, required this.onSearchSubmitted});
+  const CustomAppBarSearchView({super.key, required this.searchController});
   final TextEditingController searchController;
-  final Function(String) onSearchSubmitted;
+  // final Function(String) onSearchSubmitted;
   @override
   Widget build(BuildContext context) {
     return  Column(
@@ -13,7 +13,7 @@ class CustomAppBarSearchView extends StatelessWidget {
           height: 30,
         ),
         CustomTextField(
-          onSearchSubmitted: onSearchSubmitted,
+          // onSearchSubmitted: onSearchSubmitted,
           searchController: searchController,
         ),
       ],

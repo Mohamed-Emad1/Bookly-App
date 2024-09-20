@@ -11,10 +11,11 @@ class SerachViewResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SearchResultCubit, SearchResultState>(
+    return BlocConsumer<SearchResultCubit, SearchResultState>(
       builder: (context, state) {
         if (state is SearchResultSuccess) {
-                    return ListView.builder(
+          
+          return ListView.builder(
             itemCount: state.books.length,
             itemBuilder: (context, index) {
               return Padding(
@@ -24,14 +25,20 @@ class SerachViewResult extends StatelessWidget {
               );
             },
           );
+          
         } else if (state is SearchResultFailure) {
-           return const Center(
+          return const Center(
             child: CustomErrorMessage(
               errorMessage: "No results found",
             ),
           );
         } else {
           return const Center(child: CustomLoadingIndicator());
+        }
+      },
+      listener: (BuildContext context, SearchResultState state) {
+        if (state is SearchResultSuccess) {
+          print("lister");
         }
       },
     );

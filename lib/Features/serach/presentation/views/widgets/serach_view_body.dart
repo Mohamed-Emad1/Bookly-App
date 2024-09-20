@@ -4,10 +4,10 @@ import 'package:booly_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class SerachViewBody extends StatelessWidget {
-  const SerachViewBody({super.key, required this.searchController, required this.onSearchSubmitted});
+  const SerachViewBody({super.key, required this.searchController});
 
   final TextEditingController searchController;
-  final Function(String) onSearchSubmitted;
+  // final Function(String) onSearchSubmitted;
   @override
   Widget build(BuildContext context) {
     return  CustomScrollView(
@@ -20,7 +20,7 @@ class SerachViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomAppBarSearchView(
-                  onSearchSubmitted: onSearchSubmitted,
+                  // onSearchSubmitted: onSearchSubmitted,
                   searchController: searchController,
                 ),
                 const SizedBox(

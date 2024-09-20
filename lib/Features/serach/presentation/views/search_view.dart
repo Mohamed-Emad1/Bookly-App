@@ -17,12 +17,12 @@ class _SearchViewState extends State<SearchView> {
 
   @override
   void initState() {
-    super.initState();
     _searchController = TextEditingController();
 
     // Trigger an initial search
     BlocProvider.of<SearchResultCubit>(context)
         .fetchFeaturedBooks(searchText: "Programming");
+    super.initState();
   }
 
   @override
@@ -31,24 +31,21 @@ class _SearchViewState extends State<SearchView> {
     super.dispose();
   }
 
-  void _onSearchSubmitted(String searchText) {
-    BlocProvider.of<SearchResultCubit>(context)
-        .fetchFeaturedBooks(searchText: searchText);
-  }
+  // void _onSearchSubmitted(String searchText) {
+  //   BlocProvider.of<SearchResultCubit>(context)
+  //       .fetchFeaturedBooks(searchText: searchText);
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SearchResultCubit(
-          getIt.get<SearchRepoImpl>()), // Make sure you pass the repository here
-      child: Scaffold(
+    return 
+       Scaffold(
         body: SafeArea(
           child: SerachViewBody(
             searchController: _searchController,
-            onSearchSubmitted: _onSearchSubmitted,
+            // onSearchSubmitted: _onSearchSubmitted,
           ),
-        ),
-      ),
+          ),
     );
   }
 }
