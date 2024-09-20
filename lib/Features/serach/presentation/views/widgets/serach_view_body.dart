@@ -4,34 +4,40 @@ import 'package:booly_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class SerachViewBody extends StatelessWidget {
-  const SerachViewBody({super.key});
+  const SerachViewBody({super.key, required this.searchController, required this.onSearchSubmitted});
 
+  final TextEditingController searchController;
+  final Function(String) onSearchSubmitted;
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return  CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Padding(
             padding: kPadding30,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CustomAppBarSearchView(),
-                SizedBox(
+                CustomAppBarSearchView(
+                  onSearchSubmitted: onSearchSubmitted,
+                  searchController: searchController,
+                ),
+                const SizedBox(
                   height: 16,
                 ),
-                Text(
+                const Text(
                   "Search Result",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
               ],
             ),
           ),
         ),
-        SerachViewResult(),
+        const SliverFillRemaining(child: SerachViewResult()),
       ],
     );
   }

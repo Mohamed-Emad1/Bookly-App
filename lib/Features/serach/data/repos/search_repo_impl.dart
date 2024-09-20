@@ -24,7 +24,7 @@ class SearchRepoImpl extends SearchRepo{
       return right(books);
     } on Exception catch (e) {
       if (e is DioException) {
-        return left(ServerFailure(message: e.message!));
+        return left(ServerFailure(message: e.message?? "somthing wen wrong"));
       }
 
       return left(ServerFailure(message: e.toString()));

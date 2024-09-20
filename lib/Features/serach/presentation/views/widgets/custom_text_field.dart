@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+import '../../manager/search_cubit/search_result_cubit.dart';
 
+class CustomTextField extends StatelessWidget {
+  const CustomTextField(
+      {super.key,
+      required this.searchController,
+      required this.onSearchSubmitted});
+  final TextEditingController searchController;
+  final Function(String) onSearchSubmitted;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: searchController,
+      onSubmitted: (text) {
+        print(text);
+        // onSearchSubmitted(text);
+        BlocProvider.of<SearchResultCubit>(context)
+            .fetchFeaturedBooks(searchText: text);
+      },
       decoration: InputDecoration(
         enabledBorder: outLineBorder(),
         focusedBorder: outLineBorder(),

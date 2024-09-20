@@ -11,10 +11,13 @@ class SearchResultCubit extends Cubit<SearchResultState> {
   final SearchRepo searchRepo;
   Future<void> fetchFeaturedBooks({required String searchText}) async {
     var result = await searchRepo.fetchSearchedBooks(searchText: searchText);
+    print("ssssssssssssss!!!!!!!!!!!!!:::: ${searchText}");
 
     result.fold((failure) {
+      print("Failure occurred: ${failure.message}");
       emit(SearchResultFailure(failure.message));
     }, (books) {
+      print("Success! Books count: ${books.length}");
       emit(SearchResultSuccess(books));
     });
   }
